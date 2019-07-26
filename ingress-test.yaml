@@ -6,14 +6,17 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: my.test.domain
-    http:
-      paths:
-      - path: /html1
-        backend:
-          serviceName: s1
-          servicePort: 80
-      - path: /html2
-        backend:
-          serviceName: s2
-          servicePort: 80
+    - host: s1.test.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: s1
+              servicePort: 80
+    - host: s2.test.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: s2
+              servicePort: 80
